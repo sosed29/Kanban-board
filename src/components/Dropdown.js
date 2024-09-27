@@ -5,7 +5,7 @@ const Dropdown = ({ tasks, handleSelectTask, onMoveTask }) => {
     const selectedTaskId = e.target.value;
     handleSelectTask(selectedTaskId);
     if (selectedTaskId) {
-      onMoveTask(selectedTaskId); // Передаем ID выбранной задачи для перемещения
+      onMoveTask(selectedTaskId); 
     }
   };
 

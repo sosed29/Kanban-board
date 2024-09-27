@@ -9,7 +9,7 @@ const Board = ({ columns, setColumns }) => {
           key={index}
           column={column}
           columns={columns}
-          setColumns={setColumns} // Это важно для обновления состояния через setColumns в App.js
+          setColumns={setColumns} 
         />
       ))}
     </div>

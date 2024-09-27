@@ -124,7 +124,7 @@ const Column = ({ column, columns, setColumns }) => {
   );
 };
 
-// Функция для определения исходной колонки
+// функция для определения исходной колонки
 const getSourceColumnTitle = (currentTitle) => {
   switch (currentTitle) {
     case 'Ready':

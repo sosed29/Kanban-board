@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import userAvatar from './user-avatar.svg'; // Замените на правильный путь к аватарке
+import userAvatar from './user-avatar.svg'; 
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

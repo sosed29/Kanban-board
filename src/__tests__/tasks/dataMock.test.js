@@ -1,23 +1,23 @@
-import dataMock from '../../components/mockData'; // путь к вашему модулю
+import dataMock from '../../components/mockData'; 
 
 describe('Модуль dataMock', () => {
   it('содержит 4 колонки', () => {
-    expect(dataMock).toHaveLength(4); // Проверяем, что в dataMock 4 объекта (колонки)
+    expect(dataMock).toHaveLength(4); // проверяем что в dataMock 4 колонки
   });
 
   it('проверяет структуру первой колонки', () => {
     const backlogColumn = dataMock[0];
     
-    // Проверяем заголовок первой колонки
+    // проверяем заголовок первой колонки
     expect(backlogColumn.title).toBe('Backlog');
     
-    // Проверяем, что у колонки есть массив задач
+    // проверяем, что у колонки есть массив задач
     expect(Array.isArray(backlogColumn.issues)).toBe(true);
     
-    // Проверяем, что количество задач в колонке соответствует ожидаемому
+    // проверяем, что количество задач в колонке соответствует ожидаемому
     expect(backlogColumn.issues).toHaveLength(2);
     
-    // Проверяем первую задачу в колонке
+    // проверяем первую задачу в колонке
     expect(backlogColumn.issues[0]).toEqual({
       id: '12345',
       name: 'Login page – performance issues'
@@ -26,8 +26,8 @@ describe('Модуль dataMock', () => {
 
   it('проверяет, что каждая колонка содержит задачи', () => {
     dataMock.forEach((column) => {
-      expect(column.issues).toBeInstanceOf(Array); // У каждой колонки должен быть массив issues
-      expect(column.issues.length).toBeGreaterThan(0); // Массив задач не пуст
+      expect(column.issues).toBeInstanceOf(Array); // у каждой колонки должен быть массив issues
+      expect(column.issues.length).toBeGreaterThan(0); // массив задач не пуст
     });
   });
 
