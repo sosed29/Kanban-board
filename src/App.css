@@ -1,0 +1,281 @@
+.App {
+  text-align: left;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgba(0, 121, 191, 1);
+  height: 700px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background-color: rgba(0, 103, 163, 1);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 14px;
+}
+
+.column {
+  width: 280px;
+  background-color: rgba(235, 236, 240, 1);
+  margin-top: 100px;
+  border-radius: 3px;
+  margin-right: 24px;
+  padding: 8px;
+  box-sizing: border-box;
+  height: fit-content;
+}
+
+.column:last-child {
+  margin-right: 0;
+}
+
+
+.task-list {
+  margin-bottom: 10px;
+}
+
+.card {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-task input {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding: 5px;
+  width: 100%;
+  background-color: transparent;
+}
+
+
+button {
+  padding: 5px 10px;
+  color: rgba(94, 108, 132, 1);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-card-button {
+  color: #fff;
+  background-color: rgba(94, 108, 132, 1);
+  border: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.add-task-button {
+  background-color: rgba(0, 121, 191, 1);
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.add-card-button.disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.task-detail {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.task-detail h2 {
+  margin-bottom: 15px;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28.13px;
+}
+
+.task-detail textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.task-detail button {
+  margin-right: 10px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.close-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: end;
+  margin-top: 40px;
+}
+
+.task-detail textarea {
+  border: none;
+  resize: none;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 10px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 400;
+}
+main {
+  flex-grow: 1;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 103, 163, 1);
+  color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 14px;
+  gap: 15px;
+}
+
+.user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.arrow.up {
+  margin-left: 5px;
+  border-bottom: 8px solid #fff;
+  border-top: none;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.arrow.down {
+  margin-left: 5px;
+  border-top: 8px solid #fff;
+  border-bottom: none;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.menu-items {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 8px 0;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+
+}
+
+.menu-items.open {
+  opacity: 1;
+  visibility: visible;
+  background-color: white;
+  width: 134px;
+  height: 60px;
+}
+
+.menu-item {
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .board {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .column {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .header, .footer {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+  }
+
+  .task-detail h2 {
+    font-size: 20px;
+  }
+
+  .task-detail textarea {
+    font-size: 16px;
+  }
+
+  .menu-items.open {
+    right: 10px;
+  }
+
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .menu-item {
+    font-size: 12px;
+  }
+}
