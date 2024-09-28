@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
 import './App.css';
 import Board from './components/Board';
 import TaskDetail from './components/TaskDetail';
@@ -22,14 +22,25 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Routes>
-          <Route path="/tasks/:id" element={<TaskDetail />} />
-          <Route path="/" element={<Board columns={columns} setColumns={setColumns} />} />
-        </Routes>
-        {}
+        <div className="content">
+          <Board columns={columns} setColumns={setColumns} />
+          <Routes>
+            <Route path="/tasks/:id" element={<TaskDetailWrapper />} />
+          </Routes>
+        </div>
         <Footer columns={columns} />
       </div>
     </Router>
+  );
+}
+
+function TaskDetailWrapper() {
+  const { id } = useParams();
+
+  return (
+    <div className={`task-detail-wrapper ${id ? 'visible' : ''}`}>
+      <TaskDetail taskId={id} />
+    </div>
   );
 }
 

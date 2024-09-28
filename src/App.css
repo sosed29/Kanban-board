@@ -1,5 +1,7 @@
 .App {
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .board {
@@ -15,7 +17,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 40px;
+  height: 55px;
   background-color: rgba(0, 103, 163, 1);
   color: #fff;
   display: flex;
@@ -61,7 +63,7 @@
   margin-bottom: 10px;
   font-size: 16px;
   padding: 5px;
-  width: 100%;
+  width: 95%;
   background-color: transparent;
 }
 
@@ -112,12 +114,11 @@ button {
 
 .task-detail {
   padding: 20px;
-  max-width: 600px;
-  margin: auto;
+ margin-top: 40px;
 }
 
 .task-detail h2 {
-  margin-bottom: 15px;
+  margin-bottom: 35px;
   font-family: Roboto;
   font-size: 24px;
   font-weight: 400;
@@ -142,7 +143,6 @@ button {
   cursor: pointer;
   display: flex;
   justify-content: end;
-  margin-top: 40px;
 }
 
 .task-detail textarea {
@@ -156,9 +156,7 @@ button {
   font-size: 18px;
   font-weight: 400;
 }
-main {
-  flex-grow: 1;
-}
+
 
 .footer {
   position: fixed;
@@ -166,13 +164,18 @@ main {
   left: 0;
   right: 0;
   background-color: rgba(0, 103, 163, 1);
+  height: 55px;
   color: #fff;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 0 20px;
-  font-size: 14px;
-  gap: 15px;
+  gap: 36px;
+  font-family: Roboto;
+  font-size: 18px;
+  line-height: 21.09px;
+
+
 }
 
 .user-menu {
@@ -237,9 +240,51 @@ main {
   line-height: 16.41px;
 }
 
+.task-detail-wrapper {
+  position: absolute; 
+  width: 1480px;
+  height: 548px;
+  background-color: #fff;
+  top: 100px;
+  left: 26px;
+  gap: 0px;
+  border-radius: 5px 0px 0px 0px;
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
 
+.task-detail-wrapper.visible {
+  opacity: 1;
+}
 
 @media screen and (max-width: 768px) {
+  .task-detail-wrapper {
+    position: absolute;
+    width: 90%;  /* Устанавливаем ширину в процентах для адаптации */
+    height: auto;  /* Высота по содержимому */
+    top: 80px;
+    left: 5%;  /* Центрируем элемент по горизонтали */
+    right: 5%; /* Отступы справа */
+    gap: 0px;
+    border-radius: 5px;
+    padding: 15px;  /* Добавляем внутренние отступы для удобства */
+  }
+
+  .task-detail h2 {
+    font-size: 20px;
+  }
+
+  .task-detail textarea {
+    font-size: 16px;
+  }
+
+  .header,
+  .footer {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+  }
+
   .board {
     flex-direction: column;
     align-items: center;
@@ -250,20 +295,6 @@ main {
   .column {
     width: 90%;
     margin-bottom: 20px;
-  }
-
-  .header, .footer {
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 18px;
-  }
-
-  .task-detail h2 {
-    font-size: 20px;
-  }
-
-  .task-detail textarea {
-    font-size: 16px;
   }
 
   .menu-items.open {
