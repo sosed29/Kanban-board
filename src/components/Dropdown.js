@@ -1,16 +1,15 @@
 import React from 'react';
-
-const Dropdown = ({ tasks, handleSelectTask, onMoveTask }) => {
+const Dropdown = ({ tasks, handleSelectTask, onMoveTask, selectedTaskId }) => {
   const handleChange = (e) => {
     const selectedTaskId = e.target.value;
     handleSelectTask(selectedTaskId);
     if (selectedTaskId) {
-      onMoveTask(selectedTaskId); 
+      onMoveTask(selectedTaskId);
     }
   };
 
   return (
-    <select onChange={handleChange}>
+    <select className="task-dropdown" onChange={handleChange}>
       <option value=""></option>
       {tasks.map((task) => (
         <option key={task.id} value={task.id}>
@@ -21,4 +20,4 @@ const Dropdown = ({ tasks, handleSelectTask, onMoveTask }) => {
   );
 };
 
-export default Dropdown;
+export default Dropdown
